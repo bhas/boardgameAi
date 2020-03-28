@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
+    public int id;
     public TileState state;
     public GameObject cross;
     public GameObject circle;
