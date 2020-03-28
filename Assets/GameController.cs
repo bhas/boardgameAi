@@ -5,13 +5,14 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public GameObject tilePrefab;
-    private int currentPlayerId = 1;
+    private bool isPlayerOne;
     private Tile[] tiles;
 
     // Start is called before the first frame update
     void Start()
     {
         CreateBoard();
+        isPlayerOne = true;
     }
 
     // Update is called once per frame
@@ -40,9 +41,13 @@ public class GameController : MonoBehaviour
 
     public void MakeMove(int playerid, int tileid)
     {
-        if (playerid == currentPlayerId)
+        if ((playerid == 1 && isPlayerOne) || (playerid == 2 && !isPlayerOne))
         {
-            tiles[tileid].SetState(playerid == 1 ? TileState.Cross : TileState.Circle);
+            if (tiles[tileid].state == TileState.Empty)
+            {
+                tiles[tileid].SetState(playerid == 1 ? TileState.Cross : TileState.Circle);
+                isPlayerOne = !isPlayerOne;
+            }
         }
     }
 }
