@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec9bdfda60fac2449440212687827cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 1
+  tileState: 1
   controller: {fileID: 469676879}
 --- !u!4 &49059826
 Transform:
@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d849d78f0b39e4891026d1fb703f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 2
+  tileState: 2
   controller: {fileID: 469676879}
 --- !u!4 &913579041
 Transform:

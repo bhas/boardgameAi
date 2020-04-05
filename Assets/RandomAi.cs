@@ -5,7 +5,7 @@ using UnityEngine;
 public class RandomAi : MonoBehaviour
 {
 
-    public int id;
+    public TileState tileState;
     public GameController controller;
 
     // Start is called before the first frame update
@@ -17,6 +17,6 @@ public class RandomAi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        controller.MakeMove(id, Random.Range(0, 9));
+        controller.MakeMove(tileState, Random.Range(0, 9));
     }
 }

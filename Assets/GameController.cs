@@ -1,18 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
     public GameObject tilePrefab;
-    private bool isPlayerOne;
+    private bool isPlayerCross;
+    private bool isGameOver;
     private Tile[] tiles;
 
     // Start is called before the first frame update
     void Start()
     {
         CreateBoard();
-        isPlayerOne = true;
+        isPlayerCross = true;
     }
 
     // Update is called once per frame
@@ -39,15 +42,48 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void MakeMove(int playerid, int tileid)
+    public void MakeMove(TileState tileState, int tileId)
     {
-        if ((playerid == 1 && isPlayerOne) || (playerid == 2 && !isPlayerOne))
+        if (!isGameOver && ((tileState == TileState.Cross && isPlayerCross) || (tileState == TileState.Circle && !isPlayerCross)))
         {
-            if (tiles[tileid].state == TileState.Empty)
+            if (tiles[tileId].state == TileState.Empty)
             {
-                tiles[tileid].SetState(playerid == 1 ? TileState.Cross : TileState.Circle);
-                isPlayerOne = !isPlayerOne;
+                tiles[tileId].SetState(tileState);
+                isPlayerCross = !isPlayerCross;
+                if (IsWinner(tileState))
+                {
+                    isGameOver = true;
+                    print("Winner is " + tileState);
+                }
             }
         }
+    }
+
+    public bool IsWinner(TileState tileState)
+    {
+        List<Tuple<int, int, int>> combinations = new List<Tuple<int, int, int>>
+        {
+            new Tuple<int, int, int>(0,1,2),
+            new Tuple<int, int, int>(3,4,5),
+            new Tuple<int, int, int>(6,7,8),
+            new Tuple<int, int, int>(0,3,6),
+            new Tuple<int, int, int>(1,4,7),
+            new Tuple<int, int, int>(2,5,8),
+            new Tuple<int, int, int>(0,4,8),
+            new Tuple<int, int, int>(2,4,6)
+        };
+        //foreach (Tuple<int, int, int> combination in combinations)
+        //{
+        //    if (tiles[combination.Item1].state == tileState && tiles[combination.Item2].state == tileState && tiles[combination.Item3].state == tileState)
+        //        return true;
+        //}
+        //return false;
+        //
+        //return combinations.Any(x => {
+        //    bool result = tiles[x.Item1].state == tileState && tiles[x.Item2].state == tileState && tiles[x.Item3].state == tileState;
+        //    return result;
+        //});
+        //
+        return combinations.Any(x => tiles[x.Item1].state == tileState && tiles[x.Item2].state == tileState && tiles[x.Item3].state == tileState);
     }
 }

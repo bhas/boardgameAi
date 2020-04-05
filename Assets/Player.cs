@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int id;
+    public TileState tileState;
     public GameController controller;
 
     // Start is called before the first frame update
@@ -18,39 +18,39 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            controller.MakeMove(id, 0);
+            controller.MakeMove(tileState, 0);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            controller.MakeMove(id, 1);
+            controller.MakeMove(tileState, 1);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            controller.MakeMove(id, 2);
+            controller.MakeMove(tileState, 2);
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            controller.MakeMove(id, 3);
+            controller.MakeMove(tileState, 3);
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            controller.MakeMove(id, 4);
+            controller.MakeMove(tileState, 4);
         }
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            controller.MakeMove(id, 5);
+            controller.MakeMove(tileState, 5);
         }
         if (Input.GetKeyDown(KeyCode.Alpha7))
         {
-            controller.MakeMove(id, 6);
+            controller.MakeMove(tileState, 6);
         }
         if (Input.GetKeyDown(KeyCode.Alpha8))
         {
-            controller.MakeMove(id, 7);
+            controller.MakeMove(tileState, 7);
         }
         if (Input.GetKeyDown(KeyCode.Alpha9))
         {
-            controller.MakeMove(id, 8);
+            controller.MakeMove(tileState, 8);
         }
     }
 }
