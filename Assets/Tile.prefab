@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5945215738463791029}
   - component: {fileID: 5945215738463791030}
   - component: {fileID: 5945215738463791031}
-  - component: {fileID: 5945215738463791028}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -79,19 +78,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &5945215738463791028
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5945215738463791034}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5945215739602381609
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,9 +88,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5945215739602381611}
   - component: {fileID: 5945215739602381608}
+  - component: {fileID: 8835911001328150450}
   m_Layer: 0
   m_Name: Tile
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,9 +125,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4884d73b4796f89478614a80d5deea68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
   state: 0
   cross: {fileID: 5945215739953915329}
   circle: {fileID: 5945215738463791034}
+--- !u!65 &8835911001328150450
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5945215739602381609}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5945215739953915329
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,7 +153,6 @@ GameObject:
   - component: {fileID: 5945215739953915328}
   - component: {fileID: 5945215739953915357}
   - component: {fileID: 5945215739953915330}
-  - component: {fileID: 5945215739953915331}
   m_Layer: 0
   m_Name: Cross
   m_TagString: Untagged
@@ -220,19 +220,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &5945215739953915331
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5945215739953915329}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5945215740070287764
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,10 +231,9 @@ GameObject:
   - component: {fileID: 5945215740070287767}
   - component: {fileID: 5945215740070287760}
   - component: {fileID: 5945215740070287761}
-  - component: {fileID: 5945215740070287766}
   m_Layer: 0
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -312,16 +298,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &5945215740070287766
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5945215740070287764}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
