@@ -23,12 +23,12 @@ public class Player : MonoBehaviour
 
     public void DetectMouseClick()
     {
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
             if (hit.collider.CompareTag("Tile"))
             {
-                var tile = hit.collider.GetComponent<Tile>();
+                Tile tile = hit.collider.GetComponent<Tile>();
                 GameController.instance.MakeMove(tileState, tile.id);
             }
         }

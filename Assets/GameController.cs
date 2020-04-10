@@ -80,8 +80,12 @@ public class GameController : MonoBehaviour
                 if (IsWinner(tileState))
                 {
                     isGameOver = true;
-                    print("Winner is " + tileState);
                     gameOverEvent.Invoke(tileState);
+                }
+                else if (tiles.All(x => x.state != TileState.Empty))
+                {
+                    isGameOver = true;
+                    gameOverEvent.Invoke(TileState.Empty);
                 }
             }
         }

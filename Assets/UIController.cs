@@ -8,6 +8,7 @@ public class UIController : MonoBehaviour
     public GameObject finalPanel;
     public GameObject textCircle;
     public GameObject textCross;
+    public GameObject textEmpty;
 
     // Start is called before the first frame update
     void Start()
@@ -29,11 +30,19 @@ public class UIController : MonoBehaviour
         {
             textCircle.SetActive(true);
             textCross.SetActive(false);
+            textEmpty.SetActive(false);
         }
         if (tileState == TileState.Cross)
         {
             textCircle.SetActive(false);
             textCross.SetActive(true);
+            textEmpty.SetActive(false);
+        }
+        if (tileState == TileState.Empty)
+        {
+            textCircle.SetActive(false);
+            textCross.SetActive(false);
+            textEmpty.SetActive(true);
         }
     }
 
