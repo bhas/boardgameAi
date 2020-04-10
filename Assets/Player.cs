@@ -5,7 +5,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public TileState tileState;
-    public GameController controller;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +29,7 @@ public class Player : MonoBehaviour
             if (hit.collider.CompareTag("Tile"))
             {
                 var tile = hit.collider.GetComponent<Tile>();
-                controller.MakeMove(tileState, tile.id);
+                GameController.instance.MakeMove(tileState, tile.id);
             }
         }
     }

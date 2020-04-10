@@ -3,13 +3,40 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class GameOverEvent : UnityEvent<TileState>
+{
+
+}
 
 public class GameController : MonoBehaviour
 {
+    public static GameController instance;
+
+    public GameOverEvent gameOverEvent = new GameOverEvent();
+    //public UnityEvent jumpEvent = new UnityEvent();
+    //public UnityEvent fireEvent = new UnityEvent();
+
     public GameObject tilePrefab;
     private bool isPlayerCross;
     private bool isGameOver;
     private Tile[] tiles;
+
+    // Awake is called before start
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            throw new Exception("There can only be one game controller.");
+        }
+        //jumpEvent.Invoke();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +81,7 @@ public class GameController : MonoBehaviour
                 {
                     isGameOver = true;
                     print("Winner is " + tileState);
+                    gameOverEvent.Invoke(tileState);
                 }
             }
         }
