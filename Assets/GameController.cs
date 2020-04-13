@@ -42,12 +42,13 @@ public class GameController : MonoBehaviour
     {
         CreateBoard();
         isPlayerCross = true;
+        //nextMoveEvent.Invoke(isPlayerCross);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        nextMoveEvent.Invoke(isPlayerCross);
     }
 
     private void CreateBoard()
@@ -87,7 +88,7 @@ public class GameController : MonoBehaviour
                 }
                 //
                 isPlayerCross = !isPlayerCross;
-                nextMoveEvent.Invoke(isPlayerCross);
+                //nextMoveEvent.Invoke(isPlayerCross);
             }
         }
     }

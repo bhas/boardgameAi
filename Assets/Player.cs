@@ -9,17 +9,13 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //GameController.gameController.nextMoveEvent.AddListener(PlayerMove);
     }
 
     // Update is called once per frame
     void Update()
     {
         GameController.gameController.nextMoveEvent.AddListener(PlayerMove);
-        if (Input.GetMouseButtonDown(0))
-        {
-            DetectMouseClick();
-        }
     }
 
     public void PlayerMove(bool isPlayerCross)
