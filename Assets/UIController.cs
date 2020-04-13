@@ -19,7 +19,7 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameController.instance.gameOverEvent.AddListener(OnGameOverEvent);
+        GameController.gameController.gameOverEvent.AddListener(OnGameOverEvent);
         //GameController.instance.jumpEvent.AddListener(() => finalPanel.SetActive(true));
     }
 

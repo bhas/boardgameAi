@@ -15,7 +15,16 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameController.gameController.nextMoveEvent.AddListener(PlayerMove);
         if (Input.GetMouseButtonDown(0))
+        {
+            DetectMouseClick();
+        }
+    }
+
+    public void PlayerMove(bool isPlayerCross)
+    {
+        if (isPlayerCross)
         {
             DetectMouseClick();
         }
@@ -23,13 +32,16 @@ public class Player : MonoBehaviour
 
     public void DetectMouseClick()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit))
+        if (Input.GetMouseButtonDown(0))
         {
-            if (hit.collider.CompareTag("Tile"))
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                Tile tile = hit.collider.GetComponent<Tile>();
-                GameController.instance.MakeMove(tileState, tile.id);
+                if (hit.collider.CompareTag("Tile"))
+                {
+                    Tile tile = hit.collider.GetComponent<Tile>();
+                    GameController.gameController.MakeMove(tileState, tile.id);
+                }
             }
         }
     }

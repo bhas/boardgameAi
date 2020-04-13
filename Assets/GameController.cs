@@ -6,16 +6,15 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [System.Serializable]
-public class GameOverEvent : UnityEvent<TileState>
-{
-
-}
+public class GameOverEvent : UnityEvent<TileState> { }
+public class NextMoveEvent : UnityEvent<bool> { }
 
 public class GameController : MonoBehaviour
 {
-    public static GameController instance;
+    public static GameController gameController;
 
     public GameOverEvent gameOverEvent = new GameOverEvent();
+    public NextMoveEvent nextMoveEvent = new NextMoveEvent();
     //public UnityEvent jumpEvent = new UnityEvent();
     //public UnityEvent fireEvent = new UnityEvent();
 
@@ -27,9 +26,9 @@ public class GameController : MonoBehaviour
     // Awake is called before start
     void Awake()
     {
-        if (instance == null)
+        if (gameController == null)
         {
-            instance = this;
+            gameController = this;
         }
         else
         {
@@ -76,7 +75,6 @@ public class GameController : MonoBehaviour
             if (tiles[tileId].state == TileState.Empty)
             {
                 tiles[tileId].SetState(tileState);
-                isPlayerCross = !isPlayerCross;
                 if (IsWinner(tileState))
                 {
                     isGameOver = true;
@@ -87,6 +85,9 @@ public class GameController : MonoBehaviour
                     isGameOver = true;
                     gameOverEvent.Invoke(TileState.Empty);
                 }
+                //
+                isPlayerCross = !isPlayerCross;
+                nextMoveEvent.Invoke(isPlayerCross);
             }
         }
     }
