@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cec9bdfda60fac2449440212687827cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileState: 1
+  player: 0
 --- !u!4 &49059826
 Transform:
   m_ObjectHideFlags: 0
@@ -194,8 +194,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finalPanel: {fileID: 686041350}
-  textCircle: {fileID: 1923970336}
-  textCross: {fileID: 1206437530}
+  textPlayer1: {fileID: 1206437530}
+  textPlayer2: {fileID: 1923970336}
   textEmpty: {fileID: 1928725886}
 --- !u!4 &450169335
 Transform:
@@ -243,7 +243,7 @@ MonoBehaviour:
   gameOverEvent:
     m_PersistentCalls:
       m_Calls: []
-  tilePrefab: {fileID: 5945215739602381609, guid: cf5f569b4b0ff874eb887e6d9d128a45,
+  tilePrefab: {fileID: 5239761696950600527, guid: 4d6b254e68e7a8b438c960507093c5fb,
     type: 3}
 --- !u!4 &469676880
 Transform:
@@ -652,7 +652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d849d78f0b39e4891026d1fb703f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileState: 2
+  player: 1
 --- !u!4 &913579041
 Transform:
   m_ObjectHideFlags: 0
@@ -839,7 +839,7 @@ GameObject:
   - component: {fileID: 1206437533}
   - component: {fileID: 1206437532}
   m_Layer: 5
-  m_Name: TextCross
+  m_Name: TextPlayer1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -877,7 +877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.11534355, g: 0.53002876, b: 0.9056604, a: 1}
+  m_Color: {r: 0.08235294, g: 0.6431373, b: 0.3764706, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -895,7 +895,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Cross
+  m_Text: Player 1
 --- !u!222 &1206437533
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1092,7 +1092,7 @@ GameObject:
   - component: {fileID: 1923970339}
   - component: {fileID: 1923970338}
   m_Layer: 5
-  m_Name: TextCircle
+  m_Name: TextPlayer2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1130,7 +1130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8773585, g: 0.11173906, b: 0.11173906, a: 1}
+  m_Color: {r: 0.98039216, g: 0.6039216, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1148,7 +1148,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Circle
+  m_Text: Player 2
 --- !u!222 &1923970339
 CanvasRenderer:
   m_ObjectHideFlags: 0
