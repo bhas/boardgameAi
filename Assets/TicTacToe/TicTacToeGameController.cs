@@ -9,7 +9,17 @@ namespace TicTacToe
 {
     public class TicTacToeGameController : GameController
     {
-        protected override bool IsWinner(PlayerEnum player)
+        public override BoardState GetBoardState()
+        {
+            return board.GetBoardState(IsEmpty);
+        }
+
+        protected override void CreateBoard()
+        {
+            board.Create(3, 3);
+        }
+
+        protected override bool IsWinner(int tileId, PlayerEnum player)
         {
             List<Tuple<int, int, int>> combinations = new List<Tuple<int, int, int>>
         {
@@ -22,17 +32,12 @@ namespace TicTacToe
             new Tuple<int, int, int>(0,4,8),
             new Tuple<int, int, int>(2,4,6)
         };
-            return combinations.Any(x => board.tiles[x.Item1].state == player && board.tiles[x.Item2].state == player && board.tiles[x.Item3].state == player);
+            return combinations.Any(x => board.GetTile(x.Item1).state == player && board.GetTile(x.Item2).state == player && board.GetTile(x.Item3).state == player);
         }
 
-        protected override bool IsEmptyTile(int tileId)
+        protected override bool IsEmpty(int tileId)
         {
-            return board.tiles[tileId].state == null;
-        }
-
-        protected override void CreateBoard()
-        {
-            board.Create(3, 3);
+            return board.GetTile(tileId).state == null;
         }
     }
 }

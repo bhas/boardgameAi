@@ -23,9 +23,10 @@ namespace Shared
         private PlayerEnum playerTurn;
         private bool isGameOver;
 
+        public abstract BoardState GetBoardState();
         protected abstract void CreateBoard();
-        protected abstract bool IsWinner(PlayerEnum player);
-        protected abstract bool IsEmptyTile(int tileId);
+        protected abstract bool IsWinner(int tileId, PlayerEnum player);
+        protected abstract bool IsEmpty(int tileId);
 
         // Awake is called before start
         void Awake()
@@ -56,17 +57,17 @@ namespace Shared
         public bool MakeMove(PlayerEnum player, int tileId)
         {
             // check if is invalid move
-            if (isGameOver || player != playerTurn || !IsEmptyTile(tileId))
+            if (isGameOver || player != playerTurn || !IsEmpty(tileId))
                 return false;
 
 
-            board.tiles[tileId].SetState(player);
-            if (IsWinner(player))
+            board.GetTile(tileId).SetState(player);
+            if (IsWinner(tileId, player))
             {
                 isGameOver = true;
                 gameOverEvent.Invoke(player);
             }
-            else if (board.tiles.All(x => x.state != null))
+            else if (board.IsFull())
             {
                 isGameOver = true;
                 gameOverEvent.Invoke(null);

@@ -1,9 +1,8 @@
-﻿using Shared;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TicTacToe
+namespace Shared
 {
     public class Player : MonoBehaviour
     {
